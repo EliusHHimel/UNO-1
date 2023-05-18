@@ -10,7 +10,7 @@ namespace UNO
         /// <summary>
         /// Are we in debug mode? (Register commands to guild and use test bot token)
         /// </summary>
-        public static bool IS_DEBUG = true;
+        public static bool IS_DEBUG = false;
 
         /// <summary>
         /// The Guild to register guild commands to when debugging

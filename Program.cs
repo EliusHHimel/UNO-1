@@ -84,7 +84,7 @@ namespace UNO
         {
             // Uncomment this to register commands (should only be run once, not everytime it starts)
             // Comment it out again after registering the commands
-            //await _commands.RegisterCommandsGloballyAsync();
+            // await _commands.RegisterCommandsGloballyAsync();
             if (Config.IS_DEBUG)
             {
                 Console.WriteLine("\n\nWARNING: Running in debug mode.\n\n");
