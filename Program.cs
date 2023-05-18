@@ -48,7 +48,8 @@ namespace UNO
             _commands.Log += LogAsync;
 
             await _client
-                .LoginAsync(TokenType.Bot, "MTEwODYyMzQxMzg1NTE0MTkwOA.Go_C4o.0nosc0c0-rJMDQIJpBFUynJmFcsvzVXvys3IsM");
+            .LoginAsync(TokenType.Bot,
+            System.Environment.GetEnvironmentVariable("UnoToken"));
             await _client.StartAsync();
 
             _client.InteractionCreated += OnInteractionCreated;
