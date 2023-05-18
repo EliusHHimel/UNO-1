@@ -48,12 +48,7 @@ namespace UNO
             _commands.Log += LogAsync;
 
             await _client
-                .LoginAsync(TokenType.Bot,
-                Config.IS_DEBUG
-                    ? System.Environment.GetEnvironmentVariable("TestBotToken")
-                    : System
-                        .Environment
-                        .GetEnvironmentVariable("UnoDiscordBotToken"));
+                .LoginAsync(TokenType.Bot, "MTEwODYyMzQxMzg1NTE0MTkwOA.Go_C4o.0nosc0c0-rJMDQIJpBFUynJmFcsvzVXvys3IsM");
             await _client.StartAsync();
 
             _client.InteractionCreated += OnInteractionCreated;
@@ -108,7 +103,7 @@ namespace UNO
             }
             catch (Exception e)
             {
-                Console.WriteLine (e);
+                Console.WriteLine(e);
             }
         }
 
@@ -122,11 +117,12 @@ namespace UNO
         {
             return new ServiceCollection()
                 .AddSingleton<DiscordShardedClient>(x =>
-                    new DiscordShardedClient(new DiscordSocketConfig {
-                            LogLevel = LogSeverity.Info,
-                            GatewayIntents = GatewayIntents.Guilds,
-                            TotalShards = Config.DISCORD_SHARD_COUNT
-                        }))
+                    new DiscordShardedClient(new DiscordSocketConfig
+                    {
+                        LogLevel = LogSeverity.Info,
+                        GatewayIntents = GatewayIntents.Guilds,
+                        TotalShards = Config.DISCORD_SHARD_COUNT
+                    }))
                 .AddSingleton(x =>
                     new InteractionService(x
                             .GetRequiredService<DiscordShardedClient>()))
